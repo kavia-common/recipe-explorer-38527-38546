@@ -1,11 +1,27 @@
 #!/usr/bin/env bash
-# Purpose: Minimal setup script for CI common container setup in recipe_native_app.
-# Ensures a valid shell script exists to prevent "unexpected end of file" errors.
+# Purpose: Setup script for CI common container setup in recipe_native_app.
+# Installs required system dependencies so CMake can find Qt6 and XKB.
 
 set -euo pipefail
 
 echo "[recipe_native_app] Running setup.sh"
-# No special setup required for this native app. Placeholder to satisfy CI harness.
-# Keep as two or more lines to avoid edge-case EOF parsing issues in some runtimes.
+
+# Non-interactive apt operations
+export DEBIAN_FRONTEND=noninteractive
+
+# Update package lists quietly and install required packages
+# - qt6-base-dev: Qt6 Core/Gui/Widgets headers and tools
+# - libxkbcommon-dev and libxkbcommon-x11-dev: XKB libraries required by Qt Gui (>= 0.5.0)
+# - libxcb-xkb-dev: XCB XKB headers used by xkbcommon-x11
+if command -v apt-get >/dev/null 2>&1; then
+  sudo apt-get update -y
+  sudo apt-get install -y \
+    qt6-base-dev \
+    libxkbcommon-dev \
+    libxkbcommon-x11-dev \
+    libxcb-xkb-dev
+else
+  echo "[recipe_native_app] Note: apt-get not available; ensure Qt6 and XKB dev packages are installed in the base image."
+fi
 
 exit 0

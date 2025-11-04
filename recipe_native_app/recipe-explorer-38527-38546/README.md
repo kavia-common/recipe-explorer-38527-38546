@@ -16,7 +16,8 @@ Technology:
 
 Getting Started:
 1. Prerequisites
-   - Qt 6 with Core and Widgets modules
+   - Qt 6 with Core and Widgets modules (qt6-base-dev)
+   - XKB libraries and headers (libxkbcommon-dev, libxkbcommon-x11-dev, libxcb-xkb-dev)
    - CMake >= 3.16
    - A C++17 compiler (e.g., GCC, Clang, MSVC)
 
