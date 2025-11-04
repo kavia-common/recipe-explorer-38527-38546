@@ -1,6 +1,7 @@
 #ifndef VIEWS_H
 #define VIEWS_H
 
+// Qt core and widgets headers
 #include <QWidget>
 #include <QListWidget>
 #include <QLineEdit>
@@ -8,7 +9,20 @@
 #include <QScrollArea>
 #include <QFrame>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QPushButton>
+#include <QLayout>
+
+// Some CI images split Qt headers across modules; explicitly include Widgets types
+// to prevent MOC compile-time errors when include order differs.
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QFrame>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QScrollArea>
+
 #include "repository.h"
 #include "theme.h"
 
