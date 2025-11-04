@@ -6,6 +6,9 @@
 #include <QLineEdit>
 #include <QLabel>
 #include <QScrollArea>
+#include <QFrame>
+#include <QVBoxLayout>
+#include <QPushButton>
 #include "repository.h"
 #include "theme.h"
 
