@@ -10,6 +10,8 @@ find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
 set(CMAKE_AUTOMOC ON)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+# Expose scripts directory in build context (no-op for build, aids discoverability)
+set(SCRIPTS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/scripts)
 
 set(SOURCES
     src/mainApp.cpp
