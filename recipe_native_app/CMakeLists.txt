@@ -13,11 +13,19 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 set(SOURCES
     src/mainApp.cpp
+    src/main_window.cpp
+    src/views.cpp
+    src/repository.cpp
 )
 
 # Header files
 set(HEADERS
     include/mainApp.h
+    include/main_window.h
+    include/views.h
+    include/repository.h
+    include/models.h
+    include/theme.h
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})

@@ -1,16 +1,22 @@
-#ifndef WELCOME_H
-#define WELCOME_H
+#ifndef MAIN_APP_H
+#define MAIN_APP_H
 
-#include <QWidget>
+#include <QApplication>
+#include "main_window.h"
 
-class QLabel;
-
-class WelcomeWidget : public QWidget
-{
-    Q_OBJECT
-
+/**
+ * PUBLIC_INTERFACE
+ * Entrypoint: constructs QApplication and shows MainWindow.
+ */
+class App {
 public:
-    explicit WelcomeWidget(QWidget *parent = nullptr);
+    // PUBLIC_INTERFACE
+    static int run(int argc, char *argv[]) {
+        QApplication app(argc, argv);
+        MainWindow w;
+        w.show();
+        return app.exec();
+    }
 };
 
-#endif // WELCOME_H
+#endif // MAIN_APP_H
